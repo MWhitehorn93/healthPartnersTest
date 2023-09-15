@@ -13,6 +13,7 @@ describe('Amazon text search test', () => {
         cy.get('#a-autoid-0').click()
         //#twotabsearchtextbox is the selector for the search bar on amazns website
         cy.get('.hm-icon').click()
+        //#hmenu-content > .hmenu-visible id of the "sandwich". Cypress clicks the link
         cy.get('#hmenu-content > .hmenu-visible').contains("New Releases").click()
         
     })
