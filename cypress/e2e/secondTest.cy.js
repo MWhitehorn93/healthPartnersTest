@@ -1,5 +1,5 @@
-describe('Amazon text search test', () => {
-    it('Amazon text search test', () => {
+describe('Amazon sandwich test', () => {
+    it('Amazon sandwich test', () => {
         //There was a uncaught exception when running this test hence this catch
         Cypress.on('uncaught:exception', (err, runnable) => {
             // returning false here prevents Cypress from

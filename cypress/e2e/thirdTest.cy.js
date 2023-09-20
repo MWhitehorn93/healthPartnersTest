@@ -1,5 +1,5 @@
-describe('Amazon text search test', () => {
-    it('Amazon text search test', () => {
+describe('Amazon todays deals test', () => {
+    it('Amazon todays deals test', () => {
         //The CSS selectors in this test are very poor and this is not what I would use in a commercial setting. In a commercial setting I would enter data-testID all over the site
         //The todays deals square is not located on cypress (I assume it needs a cookie or a user to be logged in). I have used the the macbook resolution for the link to appear on the banner which is just below the search bar
         cy.viewport('macbook-15')
