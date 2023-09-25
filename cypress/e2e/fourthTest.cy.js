@@ -59,5 +59,35 @@ describe('Add a product test', () => {
         //The final assertion in this test is to check if an older product is on show after the reset 
         cy.get('[data-testid="name"]')
         .contains(oldProductName)
-    })
+        cy.visit("https://www.demoblaze.com/index.html")
+        //using cy.origin to interact with other elements on https://www.demoblaze.com/index.html
+        cy.origin("https://www.demoblaze.com/index.html",() => {
+            //These values were created to run this test
+            const username = "BuggsBunny"
+            const password = "qwertyuiop"
+            //#narvbarx is te ID of the banner
+            cy.get('#narvbarx')
+            //Instead of retreived the elemenet directly I am searching for the text to ensure it is visible
+            .contains("Log in")
+            .click()
+            //The following code enters the username Buggs bunny. The Delay is to slowly type the text as this was very flakey
+            cy.get('#loginusername')
+            .clear()
+            .type(username, {delay:500})
+            //Following code asserts the correct username
+            cy.get('#loginpassword')
+            .clear()
+            .type(password)
+            cy.get('#loginusername')
+            .should('have.value', username)
+            //If I had access, I would add an easier selector to this element
+            cy.get('#logInModal > .modal-dialog > .modal-content > .modal-footer > .btn-primary')
+            .click()
+            //This final assertion checks the user name of the test account is dislayed on the banner
+            cy.get('#narvbarx')
+            .contains(username)
+        })
+        
+        
+        })
 })
